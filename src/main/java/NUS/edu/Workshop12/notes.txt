@@ -1,0 +1,22 @@
+guide for operating the system
+0) start sping proj via "https://start.spring.io/"
+1) make the mvn with the command "./mvnw spring-boot:run" ->can run using svc terminal
+2) link up with heroku using cmd
+3) CMD "heroku login"
+4) CMD "heroku create"
+4.4) "git init"
+4.5) "git remote add heroku website"
+4.6) "git branch" //get to main
+5) after your html is done, push to git
+6) use "git remote -v" to check all existing git connections, should have a file
+6.5) add under root directory "system.properties"
+7) cmd git add
+8) "git commit -m "new""
+9) "git push heroku master"
+10)make new git repo
+11) "git remote add origin "github website"" 
+12) when pushing to git use "git push origin master" or "git push origin main"
+
+additional notes:
+1) can also change the port number via application.properties by keying in "server.port=8084" or other port number
+2) with port args use "mvn spring-boot:run -Dspring-boot.run.arguments=--port=8081" ->use cmd to run otherwise will have error

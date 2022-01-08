@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Generate Random Image</title>
+</head>
+<body>
+    <h2 id="demo" >Welcome!</h2>
+    <script>
+        setInterval(displayHello, 1000);
+       
+        function displayHello() {
+            var today = new Date();
+            var date = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate()+" "+today.getHours()+"H "+today.getMinutes()+"M "+today.getSeconds()+"S";
+            if(today.getHours()>12){
+                document.getElementById("demo").innerHTML ="Good Afternoon! Time is " + date;
+            }else{
+                document.getElementById("demo").innerHTML ="Good Morning! Time is " + date;
+            }
+            
+        }
+
+    </script>
+    
+    <h1>How many numbers do you wish to generate? (Max 30)</h1>
+    <!--<h2 data-th-text="${generate.Greetings}"></h2>-->
+    <!--note that the th:action is to bind to postmapping-->
+    <form
+        action="#"
+        th:action="@{/generate}"
+        th:object="${generate}"
+        method="post"
+
+    >
+    <!--binding was used here to bind the "generate" object to a text field-->
+    <p>
+        <!--"*{}" is to call the method of the object "Generate.java"-->
+        <input type="text"  th:field="*{NumberVal}" size =50>
+       
+        <input type="submit" value ="Generate"/>
+    </p>
+    <!--div data-th-text="*{Greetings}"></div>-->
+    <p data-th-text="${generate.getMaxText}"></p>
+    </form>
+    
+</body>
+</html>
